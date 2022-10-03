@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!--font awesome-->
     <script src="https://kit.fontawesome.com/7d33acbcb4.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Miki's Profile</title>
     <style>
         body, html {
         height: 100%;
@@ -17,7 +17,7 @@
 
         .bg {
         /* The image used */
-        background-image: url("assets/img/96238117_p0.jpg");
+        background-image: url("assets/img/brave_ClyeEy0DWx.png");
         background-color: rgba(0, 0, 0, 0.6);
         background-blend-mode: darken;
         background-attachment: fixed;
@@ -54,6 +54,28 @@
         background-color: transparent;
         text-decoration: none;
         }
+        /* a:link {
+        color: rgb(255, 202, 27);
+        background-color: transparent;
+        }
+
+        a:visited {
+        color: rgb(255, 202, 27);
+        background-color: transparent;
+        text-decoration: none;
+        }
+
+        a:hover {
+        color: rgb(255, 147, 5);
+        background-color: transparent;
+        text-decoration: none;
+        }
+
+        a:active {
+        color: rgb(255, 147, 5);
+        background-color: transparent;
+        text-decoration: none;
+        } */
     </style>
 </head>
 <body class="bg">
@@ -61,11 +83,11 @@
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-4 mx-3 my-2">
                 <div class="card">
-                    <div class="card-header bg-primary">
+                    <div class="card-header bg-warning">
                         <h4 class="text-light text-center"><i class="fa-solid fa-address-card"></i> MastaMiki's Profile</h4>
                     </div>
                     <div class="card-body">
-                        <img src="assets/img/profile.jpg" width="50%" height="auto" class="d-block mx-auto rounded-circle img-fluid" alt="Profile picture">
+                        <img src="assets/img/profile_crop.png" width="50%" height="auto" class="d-block mx-auto rounded-circle img-fluid" alt="Profile picture">
                       <h4 class="card-title"></h4>
                       <div class="row mt-4">
                         <div class="col-md-12 col-lg-6">
@@ -107,71 +129,216 @@
                             <a href="https://steamcommunity.com/id/MastaMiki" class="social-link"><i class="fa-brands fa-steam"></i></a>
                         </p>
                       </div>
+                      <div class="d-flex justify-content-center">
+                        <p>Last update : 10/3/2022</p>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <audio controls loop autoplay id="myAudio">
+                          <source src="assets/audio/Believe_In_Myself.mp3" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                        <script>
+                          var vid = document.getElementById("myAudio");
+                          vid.volume = 0.2;
+                        </script>
+                      </div>
                     </div>
                   </div>
             </div>
             <div class="col-sm-12 col-md-7 mx-3 my-2">
                 <div class="card shadow rounded-5">
-                    <div class="card-header bg-primary">
+                    <div class="card-header bg-info">
                         <h4 class="text-light text-center"><i class="fa-solid fa-address-card"></i> About me</h4>
                     </div>
                     <div class="card-body">
-                      <h4 class="card-title">Bio</h4>
-                      <p class="card-text">Hi there adventurer~ idk what to put so... Enjoy lmao!</p>
-                      <div class="row">
-                        <div class="col">
-                            <h4 class="card-title">Hype Personality</h4>
-                            <ul>
-                                <li>Mastermind</li>
-                                <li>Act like a villain</li>
-                                <li>Boast</li>
-                                <li>Never give up</li>
-                            </ul>
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-pills">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-bs-toggle="pill" href="#bio">Bio</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="pill" href="#personality">Personality</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="pill" href="#interests">Interests</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="pill" href="#library">Library</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="pill" href="#plans">Plans</a>
+                        </li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane container active mt-4" id="bio">
+                          <h4 class="card-title">Bio</h4>
+                          <p class="card-text">Hi there adventurer~ Seem like u having interest in me right? no? welp, I'll introduce it anyway. as u know my username, u can call me "Miki". I'm kinda hard to talk with bc I'm a quiet guy. but I'm quite a talkative guy when we do some activity together like playing game, etc. btw a lot of ppl say that I'm a furry but I don't really know that it's true or not so it's up to you. I'm finding a soulmate rn but it's seem impossible for me bc no one that can compatible with me</p>
+                          <h5>Name meaning</h5>
+                          <p>"Masta" is a playing word from "Masuta (マスタ)" means "Master" and it's pronoune like "Masta". Why I chose this name? bc I want to be expert at everything as much as possible!</p>
+                          <p>"Miki" is having a lot of meaning in japanese. So it's ur choice to make a meaning for me</p>
+                          <h5>Life's goal</h5>
+                          <p>I want to be able to create anything. That's it! it's so simple but wide</p>
                         </div>
-                        <div class="col">
-                            <h4 class="card-title">Normal Personality</h4>
-                            <ul>
+                        <div class="tab-pane container fade mt-4" id="personality">
+                          <div class="row">
+                            <h4 class="card-title">Personality</h4>
+                            <div class="col">
+                              <h5><span class="badge bg-primary">Default</span></h5>
+                              <ul>
+                                <li>Introvert (Maybe Ambivert?)</li>
+                                <li>Humble</li>
                                 <li>Sensitive</li>
-                              <li>Kindness</li>
-                              <li>Quiet</li>
-                              <li>Fantasy living</li>
-                            </ul>
+                                <li>Kindness</li>
+                                <li>Quiet</li>
+                                <li>Fantasy living</li>
+                                <li>nervous easily</li>
+                                <li>overthinking</li>
+                                <li>Shy to asking</li>
+                                <li>Perfectionist</li>
+                                <li>Lazybones</li>
+                                <li>Crafty</li>
+                                <li>Cold heart (In some case)</li>
+                              </ul>
+                            </div>
+                            <div class="col">
+                              <h5><span class="badge bg-danger">When advantageous</span></h5>
+                                <ul>
+                                    <li>Mastermind</li>
+                                    <li>Act like a villain</li>
+                                    <li>Boast</li>
+                                </ul>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <h5><span class="badge bg-warning">Fact</span></h5>
+                            <div class="col">
+                              <ul>
+                                <li>Addicted to music</li>
+                                <li>Mostly stayed indoor</li>
+                                <li>Love to know how other think and feel</li>
+                                <li>Venting A LOT!!</li>
+                                <li>Study in Computer Engineering bachelor degree</li>
+                              </ul>
+                            </div>
+                            <div class="col">
+                              <ul>
+                                <li>have experienced and advanced knowledge abt Minecraft server</li>
+                                <li>Love to draw Stickmans fight</li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                            <h4 class="card-title"><i class="fa-solid fa-thumbs-up text-primary"></i> Likes</h4>
-                            <ul>
-                                <li>Salmon Sashimi <i class="fa-solid fa-star text-warning"></i></li>
-                                <li>Tails <i class="fa-solid fa-heart text-danger"></i></li>
-                            </ul>
+                        <div class="tab-pane container fade mt-4" id="interests">
+                          <div class="row">
+                            <div class="col">
+                                <h4 class="card-title"><i class="fa-solid fa-thumbs-up text-primary"></i> Likes</h4>
+                                <ul>
+                                    <li>Salmon Sashimi <i class="fa-solid fa-star text-warning"></i></li>
+                                    <li>LEGO <i class="fa-solid fa-star text-warning"></i></li>
+                                    <li>Miles 'Tails' Prower <i class="fa-solid fa-heart text-danger"></i></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h4 class="card-title"><i class="fa-solid fa-thumbs-down text-danger"></i> Dislikes</h4>
+                                <ul>
+                                  <li>Toxic society</li>
+                                  <li>Children</li>
+                                </ul>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                                <h4 class="card-title"><i class="fa-solid fa-gamepad"></i> Hobbies</h4>
+                                <ul>
+                                    <li>Daydreaming <i class="fa-solid fa-star text-warning"></i></li>
+                                  <li>Learning new things</li>
+                                  <li>Listening to music <i class="fa-solid fa-star text-warning"></i></li>
+                                  <li>Playing games <i class="fa-solid fa-heart text-danger"></i></li>
+                                  <li>Solving puzzles</li>
+                                  <li>Drawing</li>
+                                  <li>Music composing</li>
+                                  <li>Coding</li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h4 class="card-title"><i class="fa-solid fa-thumbtack text-danger"></i> Interests</h4>
+                                <ul>
+                                  <li>Science</li>
+                                  <li>Technology</li>
+                                  <li>Life topic</li>
+                                </ul>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col">
-                            <h4 class="card-title"><i class="fa-solid fa-thumbs-down text-danger"></i> Dislikes</h4>
-                            <ul>
-                              <li>Toxic society</li>
-                            </ul>
+                        <div class="tab-pane container mt-4" id="library">
+                          <h4 class="card-title">Library (Sample)</h4>
+                          <div class="row">
+                            <div class="col-md-12 col-lg-4">
+                              <h5><span class="badge bg-dark">Games</span></h5>
+                              <ul>
+                                <li>Minecraft</li>
+                                <li>Rocket league</li>
+                                <li>Terraria</li>
+                                <li>Don't starve together</li>
+                                <li>World of Warships</li>
+                                <li>The Sim 4</li>
+                                <li>Roblox</li>
+                                <li>Osu! (Mania)</li>
+                                <li>Bloon TD 6</li>
+                                <li>Fall guy</li>
+                                <li>Platypus</li>
+                                <li>DOOM II</li>
+                                <span class="badge bg-dark">Uninstalled</span>
+                                <li>Quake III Areana</li>
+                                <li>Team fortess 2</li>
+                              </ul>
+                            </div>
+                            <div class="col-md-12 col-lg-8">
+                              <h5><span class="badge bg-primary">Music</span></h5>
+                              <ul>
+                                <span class="badge bg-warning">Most Favorite</span>
+                                <li><a href="https://youtu.be/wJQIVqG0Dx4">Believe in Myself (SA2)</a></li>
+                                <li><a href="https://youtu.be/lFNWUL9fqG8">Forgotten Words (忘れじの言の葉)</a></li>
+                                <li><a href="https://youtu.be/AIU2WCgh2m4">Danny Chen - The Unknown (ft. Ryan Ellingson) (Sekai Remix)</a></li>
+                                <li><a href="https://youtu.be/SeMXa5lBGYc">Caramelldansen</a></li>
+                                <span class="badge bg-primary">Relax</span>
+                                <li><a href="https://youtu.be/8V71sATDTqs">- Fragments - Unattended Generative Modular Ambient</a></li>
+                                <li><a href="https://youtu.be/RLrh1IstMHM">Snail's House - Imaginary Express</a></li>
+                                <span class="badge bg-danger">Energetic</span>
+                                <li><a href="https://www.youtube.com/watch?v=yHiBn61UVDc">Akosmo - Simulation EP (Full EP)</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=yolbGaJD4AY">Waterflame - Glorious Morning 2</a></li>
+                                <li><a href="https://youtu.be/0Gs8e8yKeWQ">X-Formz - Comic Bakery</a></li>
+                                <li><a href="https://youtu.be/FDrP0-_HXMM">霊知の太陽信仰 ～ Nuclear Fusion Hardcore.edt</a></li>
+                                <li><a href="https://youtu.be/gAwMEM8K2fU">callasoiled - EMPTH(エムス)</a></li>
+                                <li><a href="https://youtu.be/jx6BJsidKdc">Metallica - Master of Puppets [Cover by RichaadEB & Little V]</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=t5Z4AVqAh4Y">DM DOKURO - false paradise</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=wNNPvRgVj6o">ferrofluid - 64657363656E74 -the plummet-</a></li>
+                                <li><a href="https://youtu.be/zE2or1dzGU0">🌃 DISTRICT 191 🌃</a></li>
+                                <span class="badge bg-danger">Terraria Calamity music</span>
+                                <li><a href="https://youtu.be/fmt-2Uqx0K4">Fly of Beelzebub</a></li>
+                                <li><a href="https://youtu.be/17IZjvr5c1I">1NF3S+@+!0N</a></li>
+                                <li><a href="https://youtu.be/RF1tUy6QcPs">Outcast of The Sulphurous Seas</a></li>
+                                <li><a href="https://youtu.be/5GcPA3C0QeI">Roar of The Jungle Dragon</a></li>
+                                
+                                
+                                <span class="badge bg-dark">Misc</span>
+                                <li><a href="https://youtu.be/_mkiGMtbrPM">WORLD ORDER "HAVE A NICE DAY"</a></li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                            <h4 class="card-title"><i class="fa-solid fa-gamepad"></i> Hobbies</h4>
-                            <ul>
-                                <li>Daydreaming <i class="fa-solid fa-star text-warning"></i></li>
-                              <li>Learning new things</li>
-                              <li>Listening to music <i class="fa-solid fa-star text-warning"></i></li>
-                              <li>Playing games <i class="fa-solid fa-heart text-danger"></i></li>
-                              <li>Solving puzzles</li>
-                              <li>Doing some creativity things such as drawing, making music, even coding</li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <h4 class="card-title"><i class="fa-solid fa-thumbtack text-danger"></i> Interests</h4>
-                            <ul>
-                              <li>Science</li>
-                              <li>Technology</li>
-                              <li>Life topic</li>
-                            </ul>
+                        <div class="tab-pane container mt-4" id="plans">
+                          <h4 class="card-title">Something that I'll work with in some days</h4>
+                          <ul>
+                            <li>Vtuber</li>
+                            <li>Modeling</li>
+                            <li>Game development</li>
+                            <li>Improve drawing skill</li>
+                            <li>Build a robot</li>
+                            <li>Build a house</li>
+                          </ul>
                         </div>
                       </div>
                     </div>
