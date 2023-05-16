@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!--font awesome-->
     <script src="https://kit.fontawesome.com/7d33acbcb4.js" crossorigin="anonymous"></script>
-    <title>Introduction to cloud architechure</title>
+    <title>Miki's Profile</title>
     <style>
         body, html {
         height: 100%;
@@ -17,7 +17,7 @@
 
         .bg {
         /* The image used */
-        background-image: url("https://t1.blockdit.com/photos/2022/01/61e7c1cf119eaca32b091de4_800x0xcover_nhN-DeeN.jpg");
+        background-image: url("assets/img/2654863_amni3d_tails-flight-loop.gif");
         background-color: rgba(0, 0, 0, 0.6);
         background-blend-mode: darken;
         background-attachment: fixed;
@@ -76,26 +76,58 @@
         background-color: transparent;
         text-decoration: none;
         } */
+
+        .hide {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-6 mx-3 my-2">
-                <div class="card">
-                    <div class="card-header bg-warning">
-                        <h4 class="text-light text-center"><i class="fa-solid fa-address-card"></i>Introduction to Cloud Architechure</h4>
-                    </div>
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col">
+                <div class="card mx-5 my-5 bg-light hide" id="card-1">
                     <div class="card-body">
-                      <h4 class="card-title"></h4>
-                      <div class="row mt-4">
-                        <div class="col-sm-12">
-                            <h1 class="card-text text-center"><strong>สวัดดีจากกลุ่ม 03</strong></h1>
+                        <div class="d-flex justify-content-center">
+                            <h1 class="display-1" id="header-1">
+                                Coming Soon
+                            </h1>
                         </div>
-                      </div>
+                        <div class="d-flex justify-content-center">
+                            <p class="hide" id="content-1">รอสอบเสร็จก่อนนะ 55555</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p class="hide" id="content-2">น่าจะประมาณ 31 พฤษภาคม 2565 - 15 มิถุนายน 2565</p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <img class="hide" id="content-3" src="assets/img/61a23c32947f53703d40dffa954a5bbc.gif" alt="">
+                        </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
+<script>
+    $(function(){
+        $("#card-1").slideDown(3000);
+        setTimeout(function() {
+            $("#header-1").slideDown(500);
+        }, 3000);
+        setTimeout(function() {
+            $("#content-1").fadeIn(500);
+        }, 3500);
+        setTimeout(function() {
+            $("#content-2").fadeIn(500);
+        }, 5500);
+        setTimeout(function() {
+            $("#content-3").slideDown(500);
+        }, 7500);
+        // setTimeout(function() {
+        //     $("#content-1").slideUp(1500);
+        //     $("#content-2").slideUp(1000);
+        //     $("#content-3").slideUp(500);
+        // }, 12500);
+    });
+</script>
+</html>
