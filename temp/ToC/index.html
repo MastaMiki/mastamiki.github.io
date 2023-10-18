@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>IPv4 Checker</title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+        margin:0;
+        padding:0;
+        width: 100%;
+        height: 100%;
+        font-family:"arial",heletica,sans-serif;
+        font-size:12px;
+            background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+        -webkit-animation: 10s linear 0s normal none infinite animate;
+        -moz-animation: 10s linear 0s normal none infinite animate;
+        -ms-animation: 10s linear 0s normal none infinite animate;
+        -o-animation: 10s linear 0s normal none infinite animate;
+        animation: 10s linear 0s normal none infinite animate;
+        
+        }
+        
+        @-webkit-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+        }
+        
+        @-moz-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+        }
+        
+        @-ms-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+        }
+        
+        @-o-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+        }
+        
+        @keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+        }
+
+        .miki{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+        <div class="d-flex justify-content-center align-items-center p-3 miki">
+            <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+                <h1 class="text-light display-1">IPv4 Checker</h1>
+                <div class="input-group">
+                    <input type="text" id="ipv4Field" placeholder="0.0.0.0" class="form-control">
+                    <span id="status" class="input-group-text">@</span>
+                  </div>
+                <div id="systemMessage" class="my-3"></div>
+                <button class="btn btn-outline-light" onclick="isValidIPv4()">Validate</button>
+            </div>
+        </div>
+    <script>
+        //FA = {Q(11,12,13,12H,13H,1D,1TP,21,22,23,22H,23H,2D,2TP,31,32,33,32H,33H,3D,3TP,41,42,43,42H,43H,4E,4TP1,4TP2), Σ(0,1,2,3,4,5,6,7,8,9,0,.), 11, {42,43,42H,43H,4E}, δ}
+        var msgObj = document.getElementById("systemMessage");
+        var statusObj = document.getElementById("status");
+        var possibleInput = ["0","1","2","3","4","5","6","7","8","9","."];
+        var possibleFirstInput = ["1","2","3","4","5","6","7","8","9"];
+        var numberInput = ["1","2","3","4","5","6","7","8","9","0"];
+        var nearlyMaxInput = ["0","1","2","3","4","5"];
+        var overMaxInput = ["6","7","8","9"];
+        var FLInput = ["3","4","5","6","7","8","9"];
+
+        //sector 1
+        function f11(input){
+            switch(input[0]){
+                case "0":
+                    return f1d(input.substring(1))
+                    break;
+                case "1":
+                    return f12(input.substring(1))
+                    break;
+                case "2":
+                    return f12h(input.substring(1))
+                    break;
+                case "3":
+                    return f13(input.substring(1))
+                    break;
+                case "4":
+                    return f13(input.substring(1))
+                    break;
+                case "5":
+                    return f13(input.substring(1))
+                    break;
+                case "6":
+                    return f13(input.substring(1))
+                    break;
+                case "7":
+                    return f13(input.substring(1))
+                    break;
+                case "8":
+                    return f13(input.substring(1))
+                    break;
+                case "9":
+                    return f13(input.substring(1))
+                    break;
+                case ".":
+                    return f1tp(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f12(input){
+            switch(input[0]){
+                case "0":
+                    return f13(input.substring(1))
+                    break;
+                case "1":
+                    return f13(input.substring(1))
+                    break;
+                case "2":
+                    return f13(input.substring(1))
+                    break;
+                case "3":
+                    return f13(input.substring(1))
+                    break;
+                case "4":
+                    return f13(input.substring(1))
+                    break;
+                case "5":
+                    return f13(input.substring(1))
+                    break;
+                case "6":
+                    return f13(input.substring(1))
+                    break;
+                case "7":
+                    return f13(input.substring(1))
+                    break;
+                case "8":
+                    return f13(input.substring(1))
+                    break;
+                case "9":
+                    return f13(input.substring(1))
+                    break;
+                case ".":
+                    return f21(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f13(input){
+            switch(input[0]){
+                case "0":
+                    return f1d(input.substring(1))
+                    break;
+                case "1":
+                    return f1d(input.substring(1))
+                    break;
+                case "2":
+                    return f1d(input.substring(1))
+                    break;
+                case "3":
+                    return f1d(input.substring(1))
+                    break;
+                case "4":
+                    return f1d(input.substring(1))
+                    break;
+                case "5":
+                    return f1d(input.substring(1))
+                    break;
+                case "6":
+                    return f1d(input.substring(1))
+                    break;
+                case "7":
+                    return f1d(input.substring(1))
+                    break;
+                case "8":
+                    return f1d(input.substring(1))
+                    break;
+                case "9":
+                    return f1d(input.substring(1))
+                    break;
+                case ".":
+                    return f21(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f12h(input){
+            switch(input[0]){
+                case "0":
+                    return f13(input.substring(1))
+                    break;
+                case "1":
+                    return f13(input.substring(1))
+                    break;
+                case "2":
+                    return f13(input.substring(1))
+                    break;
+                case "3":
+                    return f13(input.substring(1))
+                    break;
+                case "4":
+                    return f13(input.substring(1))
+                    break;
+                case "5":
+                    return f13h(input.substring(1))
+                    break;
+                case "6":
+                    return f1d(input.substring(1))
+                    break;
+                case "7":
+                    return f1d(input.substring(1))
+                    break;
+                case "8":
+                    return f1d(input.substring(1))
+                    break;
+                case "9":
+                    return f1d(input.substring(1))
+                    break;
+                case ".":
+                    return f21(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f13h(input){
+            switch(input[0]){
+                case "0":
+                    return f1d(input.substring(1))
+                    break;
+                case "1":
+                    return f1d(input.substring(1))
+                    break;
+                case "2":
+                    return f1d(input.substring(1))
+                    break;
+                case "3":
+                    return f1d(input.substring(1))
+                    break;
+                case "4":
+                    return f1d(input.substring(1))
+                    break;
+                case "5":
+                    return f1d(input.substring(1))
+                    break;
+                case "6":
+                    return f1tp(input.substring(1))
+                    break;
+                case "7":
+                    return f1tp(input.substring(1))
+                    break;
+                case "8":
+                    return f1tp(input.substring(1))
+                    break;
+                case "9":
+                    return f1tp(input.substring(1))
+                    break;
+                case ".":
+                    return f21(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f1d(input){
+            switch(input[0]){
+                case "0":
+                    return f1tp(input.substring(1))
+                    break;
+                case "1":
+                    return f1tp(input.substring(1))
+                    break;
+                case "2":
+                    return f1tp(input.substring(1))
+                    break;
+                case "3":
+                    return f1tp(input.substring(1))
+                    break;
+                case "4":
+                    return f1tp(input.substring(1))
+                    break;
+                case "5":
+                    return f1tp(input.substring(1))
+                    break;
+                case "6":
+                    return f1tp(input.substring(1))
+                    break;
+                case "7":
+                    return f1tp(input.substring(1))
+                    break;
+                case "8":
+                    return f1tp(input.substring(1))
+                    break;
+                case "9":
+                    return f1tp(input.substring(1))
+                    break;
+                case ".":
+                    return f21(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f1tp(input){
+            switch(input[0]){
+                case "0":
+                    return f1tp(input.substring(1))
+                    break;
+                case "1":
+                    return f1tp(input.substring(1))
+                    break;
+                case "2":
+                    return f1tp(input.substring(1))
+                    break;
+                case "3":
+                    return f1tp(input.substring(1))
+                    break;
+                case "4":
+                    return f1tp(input.substring(1))
+                    break;
+                case "5":
+                    return f1tp(input.substring(1))
+                    break;
+                case "6":
+                    return f1tp(input.substring(1))
+                    break;
+                case "7":
+                    return f1tp(input.substring(1))
+                    break;
+                case "8":
+                    return f1tp(input.substring(1))
+                    break;
+                case "9":
+                    return f1tp(input.substring(1))
+                    break;
+                case ".":
+                    return f1tp(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        //sector 2
+        function f21(input){
+            switch(input[0]){
+                case "0":
+                    return f2d(input.substring(1))
+                    break;
+                case "1":
+                    return f22(input.substring(1))
+                    break;
+                case "2":
+                    return f22h(input.substring(1))
+                    break;
+                case "3":
+                    return f23(input.substring(1))
+                    break;
+                case "4":
+                    return f23(input.substring(1))
+                    break;
+                case "5":
+                    return f23(input.substring(1))
+                    break;
+                case "6":
+                    return f23(input.substring(1))
+                    break;
+                case "7":
+                    return f23(input.substring(1))
+                    break;
+                case "8":
+                    return f23(input.substring(1))
+                    break;
+                case "9":
+                    return f23(input.substring(1))
+                    break;
+                case ".":
+                    return f2tp(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f22(input){
+            switch(input[0]){
+                case "0":
+                    return f23(input.substring(1))
+                    break;
+                case "1":
+                    return f23(input.substring(1))
+                    break;
+                case "2":
+                    return f23(input.substring(1))
+                    break;
+                case "3":
+                    return f23(input.substring(1))
+                    break;
+                case "4":
+                    return f23(input.substring(1))
+                    break;
+                case "5":
+                    return f23(input.substring(1))
+                    break;
+                case "6":
+                    return f23(input.substring(1))
+                    break;
+                case "7":
+                    return f23(input.substring(1))
+                    break;
+                case "8":
+                    return f23(input.substring(1))
+                    break;
+                case "9":
+                    return f23(input.substring(1))
+                    break;
+                case ".":
+                    return f31(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f23(input){
+            switch(input[0]){
+                case "0":
+                    return f2d(input.substring(1))
+                    break;
+                case "1":
+                    return f2d(input.substring(1))
+                    break;
+                case "2":
+                    return f2d(input.substring(1))
+                    break;
+                case "3":
+                    return f2d(input.substring(1))
+                    break;
+                case "4":
+                    return f2d(input.substring(1))
+                    break;
+                case "5":
+                    return f2d(input.substring(1))
+                    break;
+                case "6":
+                    return f2d(input.substring(1))
+                    break;
+                case "7":
+                    return f2d(input.substring(1))
+                    break;
+                case "8":
+                    return f2d(input.substring(1))
+                    break;
+                case "9":
+                    return f2d(input.substring(1))
+                    break;
+                case ".":
+                    return f31(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f22h(input){
+            switch(input[0]){
+                case "0":
+                    return f23(input.substring(1))
+                    break;
+                case "1":
+                    return f23(input.substring(1))
+                    break;
+                case "2":
+                    return f23(input.substring(1))
+                    break;
+                case "3":
+                    return f23(input.substring(1))
+                    break;
+                case "4":
+                    return f23(input.substring(1))
+                    break;
+                case "5":
+                    return f23h(input.substring(1))
+                    break;
+                case "6":
+                    return f2d(input.substring(1))
+                    break;
+                case "7":
+                    return f2d(input.substring(1))
+                    break;
+                case "8":
+                    return f2d(input.substring(1))
+                    break;
+                case "9":
+                    return f2d(input.substring(1))
+                    break;
+                case ".":
+                    return f31(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f23h(input){
+            switch(input[0]){
+                case "0":
+                    return f2d(input.substring(1))
+                    break;
+                case "1":
+                    return f2d(input.substring(1))
+                    break;
+                case "2":
+                    return f2d(input.substring(1))
+                    break;
+                case "3":
+                    return f2d(input.substring(1))
+                    break;
+                case "4":
+                    return f2d(input.substring(1))
+                    break;
+                case "5":
+                    return f2d(input.substring(1))
+                    break;
+                case "6":
+                    return f2tp(input.substring(1))
+                    break;
+                case "7":
+                    return f2tp(input.substring(1))
+                    break;
+                case "8":
+                    return f2tp(input.substring(1))
+                    break;
+                case "9":
+                    return f2tp(input.substring(1))
+                    break;
+                case ".":
+                    return f31(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f2d(input){
+            switch(input[0]){
+                case "0":
+                    return f2tp(input.substring(1))
+                    break;
+                case "1":
+                    return f2tp(input.substring(1))
+                    break;
+                case "2":
+                    return f2tp(input.substring(1))
+                    break;
+                case "3":
+                    return f2tp(input.substring(1))
+                    break;
+                case "4":
+                    return f2tp(input.substring(1))
+                    break;
+                case "5":
+                    return f2tp(input.substring(1))
+                    break;
+                case "6":
+                    return f2tp(input.substring(1))
+                    break;
+                case "7":
+                    return f2tp(input.substring(1))
+                    break;
+                case "8":
+                    return f2tp(input.substring(1))
+                    break;
+                case "9":
+                    return f2tp(input.substring(1))
+                    break;
+                case ".":
+                    return f31(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f2tp(input){
+            switch(input[0]){
+                case "0":
+                    return f2tp(input.substring(1))
+                    break;
+                case "1":
+                    return f2tp(input.substring(1))
+                    break;
+                case "2":
+                    return f2tp(input.substring(1))
+                    break;
+                case "3":
+                    return f2tp(input.substring(1))
+                    break;
+                case "4":
+                    return f2tp(input.substring(1))
+                    break;
+                case "5":
+                    return f2tp(input.substring(1))
+                    break;
+                case "6":
+                    return f2tp(input.substring(1))
+                    break;
+                case "7":
+                    return f2tp(input.substring(1))
+                    break;
+                case "8":
+                    return f2tp(input.substring(1))
+                    break;
+                case "9":
+                    return f2tp(input.substring(1))
+                    break;
+                case ".":
+                    return f2tp(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        //sector 3
+        function f31(input){
+            switch(input[0]){
+                case "0":
+                    return f3d(input.substring(1))
+                    break;
+                case "1":
+                    return f32(input.substring(1))
+                    break;
+                case "2":
+                    return f32h(input.substring(1))
+                    break;
+                case "3":
+                    return f33(input.substring(1))
+                    break;
+                case "4":
+                    return f33(input.substring(1))
+                    break;
+                case "5":
+                    return f33(input.substring(1))
+                    break;
+                case "6":
+                    return f33(input.substring(1))
+                    break;
+                case "7":
+                    return f33(input.substring(1))
+                    break;
+                case "8":
+                    return f33(input.substring(1))
+                    break;
+                case "9":
+                    return f33(input.substring(1))
+                    break;
+                case ".":
+                    return f3tp(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f32(input){
+            switch(input[0]){
+                case "0":
+                    return f33(input.substring(1))
+                    break;
+                case "1":
+                    return f33(input.substring(1))
+                    break;
+                case "2":
+                    return f33(input.substring(1))
+                    break;
+                case "3":
+                    return f33(input.substring(1))
+                    break;
+                case "4":
+                    return f33(input.substring(1))
+                    break;
+                case "5":
+                    return f33(input.substring(1))
+                    break;
+                case "6":
+                    return f33(input.substring(1))
+                    break;
+                case "7":
+                    return f33(input.substring(1))
+                    break;
+                case "8":
+                    return f33(input.substring(1))
+                    break;
+                case "9":
+                    return f33(input.substring(1))
+                    break;
+                case ".":
+                    return f41(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f33(input){
+            switch(input[0]){
+                case "0":
+                    return f3d(input.substring(1))
+                    break;
+                case "1":
+                    return f3d(input.substring(1))
+                    break;
+                case "2":
+                    return f3d(input.substring(1))
+                    break;
+                case "3":
+                    return f3d(input.substring(1))
+                    break;
+                case "4":
+                    return f3d(input.substring(1))
+                    break;
+                case "5":
+                    return f3d(input.substring(1))
+                    break;
+                case "6":
+                    return f3d(input.substring(1))
+                    break;
+                case "7":
+                    return f3d(input.substring(1))
+                    break;
+                case "8":
+                    return f3d(input.substring(1))
+                    break;
+                case "9":
+                    return f3d(input.substring(1))
+                    break;
+                case ".":
+                    return f41(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f32h(input){
+            switch(input[0]){
+                case "0":
+                    return f33(input.substring(1))
+                    break;
+                case "1":
+                    return f33(input.substring(1))
+                    break;
+                case "2":
+                    return f33(input.substring(1))
+                    break;
+                case "3":
+                    return f33(input.substring(1))
+                    break;
+                case "4":
+                    return f33(input.substring(1))
+                    break;
+                case "5":
+                    return f33h(input.substring(1))
+                    break;
+                case "6":
+                    return f3d(input.substring(1))
+                    break;
+                case "7":
+                    return f3d(input.substring(1))
+                    break;
+                case "8":
+                    return f3d(input.substring(1))
+                    break;
+                case "9":
+                    return f3d(input.substring(1))
+                    break;
+                case ".":
+                    return f41(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f33h(input){
+            switch(input[0]){
+                case "0":
+                    return f3d(input.substring(1))
+                    break;
+                case "1":
+                    return f3d(input.substring(1))
+                    break;
+                case "2":
+                    return f3d(input.substring(1))
+                    break;
+                case "3":
+                    return f3d(input.substring(1))
+                    break;
+                case "4":
+                    return f3d(input.substring(1))
+                    break;
+                case "5":
+                    return f3d(input.substring(1))
+                    break;
+                case "6":
+                    return f3tp(input.substring(1))
+                    break;
+                case "7":
+                    return f3tp(input.substring(1))
+                    break;
+                case "8":
+                    return f3tp(input.substring(1))
+                    break;
+                case "9":
+                    return f3tp(input.substring(1))
+                    break;
+                case ".":
+                    return f41(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f3d(input){
+            switch(input[0]){
+                case "0":
+                    return f3tp(input.substring(1))
+                    break;
+                case "1":
+                    return f3tp(input.substring(1))
+                    break;
+                case "2":
+                    return f3tp(input.substring(1))
+                    break;
+                case "3":
+                    return f3tp(input.substring(1))
+                    break;
+                case "4":
+                    return f3tp(input.substring(1))
+                    break;
+                case "5":
+                    return f3tp(input.substring(1))
+                    break;
+                case "6":
+                    return f3tp(input.substring(1))
+                    break;
+                case "7":
+                    return f3tp(input.substring(1))
+                    break;
+                case "8":
+                    return f3tp(input.substring(1))
+                    break;
+                case "9":
+                    return f3tp(input.substring(1))
+                    break;
+                case ".":
+                    return f41(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f3tp(input){
+            switch(input[0]){
+                case "0":
+                    return f3tp(input.substring(1))
+                    break;
+                case "1":
+                    return f3tp(input.substring(1))
+                    break;
+                case "2":
+                    return f3tp(input.substring(1))
+                    break;
+                case "3":
+                    return f3tp(input.substring(1))
+                    break;
+                case "4":
+                    return f3tp(input.substring(1))
+                    break;
+                case "5":
+                    return f3tp(input.substring(1))
+                    break;
+                case "6":
+                    return f3tp(input.substring(1))
+                    break;
+                case "7":
+                    return f3tp(input.substring(1))
+                    break;
+                case "8":
+                    return f3tp(input.substring(1))
+                    break;
+                case "9":
+                    return f3tp(input.substring(1))
+                    break;
+                case ".":
+                    return f3tp(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        //sector 4
+        function f41(input){
+            switch(input[0]){
+                case "0":
+                    return f4e(input.substring(1))
+                    break;
+                case "1":
+                    return f42(input.substring(1))
+                    break;
+                case "2":
+                    return f42h(input.substring(1))
+                    break;
+                case "3":
+                    return f43(input.substring(1))
+                    break;
+                case "4":
+                    return f43(input.substring(1))
+                    break;
+                case "5":
+                    return f43(input.substring(1))
+                    break;
+                case "6":
+                    return f43(input.substring(1))
+                    break;
+                case "7":
+                    return f43(input.substring(1))
+                    break;
+                case "8":
+                    return f43(input.substring(1))
+                    break;
+                case "9":
+                    return f43(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp2(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f42(input){
+            switch(input[0]){
+                case "0":
+                    return f43(input.substring(1))
+                    break;
+                case "1":
+                    return f43(input.substring(1))
+                    break;
+                case "2":
+                    return f43(input.substring(1))
+                    break;
+                case "3":
+                    return f43(input.substring(1))
+                    break;
+                case "4":
+                    return f43(input.substring(1))
+                    break;
+                case "5":
+                    return f43(input.substring(1))
+                    break;
+                case "6":
+                    return f43(input.substring(1))
+                    break;
+                case "7":
+                    return f43(input.substring(1))
+                    break;
+                case "8":
+                    return f43(input.substring(1))
+                    break;
+                case "9":
+                    return f43(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp1(input.substring(1))
+                    break;
+                default:
+                    return (input.length == 0)? true : false;
+            }
+        }
+        function f43(input){
+            switch(input[0]){
+                case "0":
+                    return f4e(input.substring(1))
+                    break;
+                case "1":
+                    return f4e(input.substring(1))
+                    break;
+                case "2":
+                    return f4e(input.substring(1))
+                    break;
+                case "3":
+                    return f4e(input.substring(1))
+                    break;
+                case "4":
+                    return f4e(input.substring(1))
+                    break;
+                case "5":
+                    return f4e(input.substring(1))
+                    break;
+                case "6":
+                    return f4e(input.substring(1))
+                    break;
+                case "7":
+                    return f4e(input.substring(1))
+                    break;
+                case "8":
+                    return f4e(input.substring(1))
+                    break;
+                case "9":
+                    return f4e(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp1(input.substring(1))
+                    break;
+                default:
+                    return (input.length == 0)? true : false;
+            }
+        }
+        function f42h(input){
+            switch(input[0]){
+                case "0":
+                    return f43(input.substring(1))
+                    break;
+                case "1":
+                    return f43(input.substring(1))
+                    break;
+                case "2":
+                    return f43(input.substring(1))
+                    break;
+                case "3":
+                    return f43(input.substring(1))
+                    break;
+                case "4":
+                    return f43(input.substring(1))
+                    break;
+                case "5":
+                    return f43h(input.substring(1))
+                    break;
+                case "6":
+                    return f4e(input.substring(1))
+                    break;
+                case "7":
+                    return f4e(input.substring(1))
+                    break;
+                case "8":
+                    return f4e(input.substring(1))
+                    break;
+                case "9":
+                    return f4e(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp1(input.substring(1))
+                    break;
+                default:
+                    return (input.length == 0)? true : false;
+            }
+        }
+        function f43h(input){
+            switch(input[0]){
+                case "0":
+                    return f4e(input.substring(1))
+                    break;
+                case "1":
+                    return f4e(input.substring(1))
+                    break;
+                case "2":
+                    return f4e(input.substring(1))
+                    break;
+                case "3":
+                    return f4e(input.substring(1))
+                    break;
+                case "4":
+                    return f4e(input.substring(1))
+                    break;
+                case "5":
+                    return f4e(input.substring(1))
+                    break;
+                case "6":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "7":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "8":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "9":
+                    return f4tp2(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp1(input.substring(1))
+                    break;
+                default:
+                    return (input.length == 0)? true : false;
+            }
+        }
+        function f4e(input){
+            switch(input[0]){
+                case "0":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "1":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "2":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "3":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "4":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "5":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "6":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "7":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "8":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "9":
+                    return f4tp2(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp1(input.substring(1))
+                    break;
+                default:
+                    return (input.length == 0)? true : false;
+            }
+        }
+        function f4tp1(input){
+            switch(input[0]){
+                case "0":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "1":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "2":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "3":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "4":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "5":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "6":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "7":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "8":
+                    return f4tp1(input.substring(1))
+                    break;
+                case "9":
+                    return f4tp1(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp1(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        function f4tp2(input){
+            switch(input[0]){
+                case "0":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "1":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "2":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "3":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "4":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "5":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "6":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "7":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "8":
+                    return f4tp2(input.substring(1))
+                    break;
+                case "9":
+                    return f4tp2(input.substring(1))
+                    break;
+                case ".":
+                    return f4tp2(input.substring(1))
+                    break;
+                default:
+                    return false;
+            }
+        }
+        //sector final
+        // function f31(input){
+        //     return true
+        // }
+        function isValidIPv4(){
+            let inputObj = document.getElementById("ipv4Field");
+            statusObj.innerHTML = '<div class="spinner-border spinner-border-sm text-primary"></div>';
+            setTimeout(function(){
+                if(f11(inputObj.value)){
+                    statusObj.innerHTML = '<span class="badge bg-success">Valid!</span>';
+                }else{
+                    statusObj.innerHTML = '<span class="badge bg-danger">Invalid!</span>';
+                }
+            },500);
+            
+        }
+
+    </script>
+</body>
+</html>
